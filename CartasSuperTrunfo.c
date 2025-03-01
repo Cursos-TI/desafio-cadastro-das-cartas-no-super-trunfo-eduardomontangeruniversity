@@ -51,6 +51,14 @@ int main() {
     printf("Digite o número de pontos turísticos: ");
     scanf(" %d", &secondCardTouristAttractions);
 
+    // Calculos da primeira carta (Seria melhor utilizar double para esses casos e não float)
+    float firstCardPopulationDensity = (float) firstCardPopulation / firstCardArea;
+    float firstCardPIBPerCapita = (float) (firstCardPIB * 1000000000) / firstCardPopulation;
+
+    // Calculos da segunda carta (Seria melhor utilizar double para esses casos e não float)
+    float secondCardPopulationDensity = (float) secondCardPopulation / secondCardArea;
+    float secondCardPIBPerCapita = (float) (secondCardPIB * 1000000000) / secondCardPopulation;
+
     // Exibição das informações da primeira carta
     printf("\nCarta 1:\n");
     printf("Estado: %c\n", firstCardState);
@@ -60,6 +68,8 @@ int main() {
     printf("Área: %.2f km²\n", firstCardArea);
     printf("PIB: %.2f bilhões de reais\n", firstCardPIB);
     printf("Número de Pontos Turísticos: %d\n", firstCardTouristAttractions);
+    printf("Densidade Populacional: %.2f hab/km²\n", firstCardPopulationDensity);
+    printf("PIB per Capita: %.2f reais\n", firstCardPIBPerCapita);
 
     // Exibição das informações da segunda carta
     printf("\nCarta 2:\n");
@@ -70,6 +80,8 @@ int main() {
     printf("Área: %.2f km²\n", secondCardArea);
     printf("PIB: %.2f bilhões de reais\n", secondCardPIB);
     printf("Número de Pontos Turísticos: %d\n", secondCardTouristAttractions);
+    printf("Densidade Populacional: %.2f hab/km²\n", secondCardPopulationDensity);
+    printf("PIB per Capita: %.2f reais\n", secondCardPIBPerCapita);
 
     return 0;
 }

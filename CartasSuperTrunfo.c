@@ -54,10 +54,37 @@ int main() {
     // Calculos da primeira carta (Seria melhor utilizar double para esses casos e não float)
     float firstCardPopulationDensity = (float) firstCardPopulation / firstCardArea;
     float firstCardPIBPerCapita = (float) (firstCardPIB * 1000000000) / firstCardPopulation;
+    float firstCardSuperPower = (
+        firstCardPopulation +
+        firstCardArea +
+        firstCardPIB +
+        firstCardTouristAttractions +
+        firstCardPIBPerCapita +
+        (firstCardPopulationDensity / -1)
+    );
 
     // Calculos da segunda carta (Seria melhor utilizar double para esses casos e não float)
     float secondCardPopulationDensity = (float) secondCardPopulation / secondCardArea;
     float secondCardPIBPerCapita = (float) (secondCardPIB * 1000000000) / secondCardPopulation;
+    float secondCardSuperPower = (
+        secondCardPopulation +
+        secondCardArea +
+        secondCardPIB +
+        secondCardTouristAttractions +
+        secondCardPIBPerCapita + 
+        (secondCardPopulationDensity / -1)
+    );
+
+    // Calculos comparativos da primeira carta
+    int firstCardWinPopulation = firstCardPopulation > secondCardPopulation;
+    int firstCardWinArea = firstCardArea > secondCardArea;
+    int firstCardWinPIB = firstCardPIB > secondCardPIB;
+    int firstCardWinTouristAttractions = firstCardTouristAttractions > secondCardTouristAttractions;
+    int firstCardWinPIBPerCapita = firstCardPIBPerCapita > secondCardPIBPerCapita;
+    int firstCardWinSuperPower = firstCardSuperPower > secondCardSuperPower;
+
+    // Calculos comparativos da segunda carta
+    int secondCardWinPopulationDensity = secondCardPopulationDensity < firstCardPopulationDensity;
 
     // Exibição das informações da primeira carta
     printf("\nCarta 1:\n");
@@ -82,6 +109,16 @@ int main() {
     printf("Número de Pontos Turísticos: %d\n", secondCardTouristAttractions);
     printf("Densidade Populacional: %.2f hab/km²\n", secondCardPopulationDensity);
     printf("PIB per Capita: %.2f reais\n", secondCardPIBPerCapita);
+
+    // Exibição das informações da segunda carta
+    printf("\nComparação de Cartas: \n");
+    printf("População: Carta 1 venceu (%d) \n", firstCardWinPopulation);
+    printf("Área: Carta 1 venceu (%d) \n", firstCardWinArea);
+    printf("PIB: Carta 1 venceu (%d) \n", firstCardWinPIB);
+    printf("Pontos Turísticos: Carta 1 venceu (%d) \n", firstCardWinTouristAttractions);
+    printf("Densidade Populacional: Carta 2 venceu (%d) \n", secondCardWinPopulationDensity);
+    printf("PIB per Capita: Carta 1 venceu (%d) \n", firstCardWinPIBPerCapita);
+    printf("Super Poder: Carta 1 venceu (%d) \n", firstCardWinSuperPower);
 
     return 0;
 }
